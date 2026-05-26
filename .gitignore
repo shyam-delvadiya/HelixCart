@@ -1,0 +1,86 @@
+# ===== Secrets and Local Environment =====
+.env
+.env.*
+*.env
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.crt
+*.csr
+secrets/
+**/secrets/
+
+# ===== Java / Maven =====
+target/
+**/target/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.properties
+
+# ===== Test and Coverage Output =====
+surefire-reports/
+failsafe-reports/
+jacoco.exec
+coverage/
+dependency-check-report.*
+dependency-check-data/
+
+# ===== Logs and Runtime Files =====
+*.log
+logs/
+*.pid
+*.hprof
+heapdump*
+
+# ===== IDE and Editor State =====
+.idea/
+*.iml
+*.iws
+*.ipr
+.vscode/
+*.swp
+*.swo
+*~
+
+# ===== OS Files =====
+.DS_Store
+Thumbs.db
+
+# ===== Docker / Compose Local State =====
+.docker/
+docker-compose.override.yml
+
+# ===== Kubernetes / Helm Local Files =====
+*.kubeconfig
+*.kubeconfig.yaml
+infrastructure/helm/**/*.tgz
+infrastructure/helm/**/charts/
+
+# ===== Terraform =====
+infrastructure/terraform/.terraform/
+infrastructure/terraform/**/*.tfstate
+infrastructure/terraform/**/*.tfstate.backup
+infrastructure/terraform/**/*.tfvars
+infrastructure/terraform/**/.terraform.lock.hcl
+crash.log
+crash.*.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# ===== Generated Artifacts =====
+dist/
+build/
+out/
+tmp/
+temp/
