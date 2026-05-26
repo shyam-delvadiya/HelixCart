@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Logback Configuration — Structured JSON Logging
+
+  All log output is JSON-formatted using logstash-logback-encoder.
+  This ensures logs are machine-parseable by ELK/OpenSearch from day one.
+
+  Every log entry automatically includes:
+  - timestamp
+  - level
+  - service (from spring.application.name)
+  - correlationId (from MDC, set by CorrelationIdFilter)
+  - logger
+  - message
+  - thread
+
+  In local development, a human-readable console appender is also active.
+-->
+<configuration>
+
+    <springProperty scope="context" name="appName" source="spring.application.name" defaultValue="helixcart-app"/>
+
+    <!-- ===== JSON Appender (used in all environments) ===== -->
+    <appender name="JSON_STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"service":"${appName}"}</customFields>
+            <fieldNames>
+                <timestamp>timestamp</timestamp>
+                <version>[ignore]</version>
+                <levelValue>[ignore]</levelValue>
+            </fieldNames>
+            <!-- Include MDC fields (correlationId, etc.) automatically -->
+            <includeMdcKeyName>correlationId</includeMdcKeyName>
+        </encoder>
+    </appender>
+
+    <!-- ===== Human-Readable Appender (local dev only) ===== -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level [%X{correlationId:-no-correlation-id}] %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- ===== Profile-based appender selection ===== -->
+    <springProfile name="local">
+        <!-- Local: human-readable for developer experience -->
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="!local">
+        <!-- All non-local environments: JSON for log aggregation -->
+        <root level="INFO">
+            <appender-ref ref="JSON_STDOUT"/>
+        </root>
+    </springProfile>
+
+</configuration>
