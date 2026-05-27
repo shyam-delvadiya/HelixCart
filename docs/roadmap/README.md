@@ -41,7 +41,7 @@ This directory tracks the evolution of the HelixCart platform across phases.
 
 **Verification:**
 - `./mvnw verify` passes from `services/helixcart-app`.
-- `docker build -t helixcart-app:phase1 .` passes from `services/helixcart-app`.
+- `docker build -t helixcart-app:local .` passes from `services/helixcart-app`.
 - `GET /actuator/health` returns `UP` for the app container with PostgreSQL and Redis healthy.
 
 ---
@@ -113,6 +113,6 @@ This directory tracks the evolution of the HelixCart platform across phases.
 - [ ] ELK / OpenSearch log aggregation
 - [ ] OpenTelemetry distributed tracing
 - [ ] Alerting rules defined
-- [ ] Trivy image scanning in CI
-- [ ] Semgrep SAST in CI
+- [ ] Trivy image scan: enforce as hard gate (currently warn-only in Phase 1)
+- [ ] Semgrep SAST: enforce as hard gate (currently warn-only in Phase 1)
 - [ ] Security runbooks written

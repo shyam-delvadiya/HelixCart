@@ -85,7 +85,7 @@ helixcart-platform/
 | Area | Technology | Phase |
 |------|-----------|-------|
 | Language | Java 21 | 1 |
-| Framework | Spring Boot 3.x | 1 |
+| Framework | Spring Boot 3.5.14 | 1 |
 | Database | PostgreSQL 16 | 1 |
 | Cache | Redis 7 | 1 |
 | Migrations | Flyway | 1 |

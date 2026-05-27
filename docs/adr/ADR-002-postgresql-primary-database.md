@@ -1,6 +1,6 @@
 # ADR-002: PostgreSQL as Primary Database
 
-**Date:** 2025-05-25
+**Date:** 2026-05-27
 **Status:** Accepted
 
 ---

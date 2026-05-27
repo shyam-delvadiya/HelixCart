@@ -1,6 +1,6 @@
 # ADR-003: Redis for Caching and Session Storage
 
-**Date:** 2025-05-25
+**Date:** 2026-05-27
 **Status:** Accepted
 
 ---

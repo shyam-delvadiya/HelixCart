@@ -1,6 +1,6 @@
 # ADR-001: Start with Modular Monolith
 
-**Date:** 2025-05-25
+**Date:** 2026-05-27
 **Status:** Accepted
 
 ---

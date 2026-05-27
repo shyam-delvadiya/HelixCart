@@ -32,6 +32,20 @@ Dependency vulnerability scanning can dominate pipeline time because the vulnera
 
 - Dependency versions used for Docker/Testcontainers compatibility should be validated against the local runtime during bootstrap, not only during CI.
 - Docker Compose warnings should be cleaned immediately because they are easy to fix and reduce noise for future contributors.
+- Pin dependency versions conservatively at bootstrap — the OWASP gate failing on a PR merge is avoidable if versions are kept current from the start.
+
+## Security Remediation (2026-05-27)
+
+Before merging Phase 1, the OWASP Dependency Check CI gate (CVSS ≥ 7.0 threshold) flagged vulnerabilities across several transitive dependencies. All were resolved by version bumps — no code changes required:
+
+| Dependency | Old | New | Root cause |
+|---|---|---|---|
+| Spring Boot parent | 3.3.1 | 3.5.14 | 3.3.x/3.4.x EOL — new CVEs kept landing with no patch. 3.5.14 ships Spring Security 6.5.10 (fixes CVE-2026-22732), Spring Framework 6.2.18, Tomcat 10.1.54 via BOM |
+| PostgreSQL JDBC | 42.7.3 | 42.7.11 | CVE-2026-42198 (SCRAM PBKDF2 DoS) — not in Boot BOM, explicit pin required |
+| springdoc-openapi | 2.5.0 | 2.8.17 | Ships swagger-ui 5.32.2 with patched DOMPurify; requires Spring Framework 6.2+ (Boot 3.4+) |
+| Netty | 4.1.111.Final | 4.1.134.Final | Multiple CVEs — pinned via `netty.version` property (BOM ships 4.1.132) |
+
+**Key learning:** Spring Boot's BOM handles most transitive security fixes automatically when the parent version is bumped. Stay on the latest supported minor line — 3.3.x and 3.4.x are EOL and accumulate CVEs with no patch. Upgrading to 3.5.x resolved Spring Security and Spring Framework CVEs. For CVEs with no upstream fix yet (Tomcat, Netty, log4j-api) and false positives (commons-lang3, Boot version-string misattributions), use an OWASP suppression file with documented justification and review dates. Only dependencies outside the BOM (PostgreSQL JDBC, springdoc) and Netty (BOM lags upstream) need explicit version declarations.
 
 ## Surprises
 

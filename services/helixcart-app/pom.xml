@@ -7,7 +7,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.3.1</version>
+        <version>3.5.14</version>
         <relativePath/>
     </parent>
 
@@ -22,7 +22,14 @@
         <logstash-logback-encoder.version>7.4</logstash-logback-encoder.version>
         <flyway.version>10.15.0</flyway.version>
         <testcontainers.version>2.0.5</testcontainers.version>
-        <springdoc.version>2.5.0</springdoc.version>
+        <springdoc.version>2.8.17</springdoc.version>
+        <!--
+            Netty is pulled in transitively via Lettuce (Redis client).
+            Spring Boot BOM manages it, but we pin explicitly to ensure
+            the latest patched version is used regardless of BOM lag.
+            CVEs: CVE-2026-42581, CVE-2026-33871, CVE-2025-24970, and others.
+        -->
+        <netty.version>4.1.134.Final</netty.version>
     </properties>
 
     <dependencies>
@@ -57,6 +64,7 @@
         <dependency>
             <groupId>org.postgresql</groupId>
             <artifactId>postgresql</artifactId>
+            <version>42.7.11</version>
             <scope>runtime</scope>
         </dependency>
 

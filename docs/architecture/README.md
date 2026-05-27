@@ -56,7 +56,7 @@ Modules communicate through well-defined interfaces — never by directly access
 | Concern | Technology | Rationale |
 |---------|-----------|-----------|
 | Language | Java 21 | LTS, virtual threads, mature ecosystem |
-| Framework | Spring Boot 3.x | Industry standard, excellent observability support |
+| Framework | Spring Boot 3.5.14 | Industry standard, excellent observability support |
 | Database | PostgreSQL 16 | Reliable, feature-rich, excellent JSON support |
 | Cache | Redis 7 | Fast, versatile, supports multiple data structures |
 | Migrations | Flyway | Version-controlled, repeatable DB migrations |
