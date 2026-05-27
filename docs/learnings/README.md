@@ -8,7 +8,7 @@ Every phase milestone must include a learnings document. This is how the project
 
 | Phase | Document | Date |
 |-------|----------|------|
-| 1 | *(in progress)* | 2025-05-25 |
+| 1 | [Phase 1 Foundation](phase-1-foundation.md) | 2026-05-27 |
 
 ## Learnings Template
 

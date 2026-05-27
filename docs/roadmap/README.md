@@ -6,7 +6,7 @@ This directory tracks the evolution of the HelixCart platform across phases.
 
 | Phase | Name | Status |
 |-------|------|--------|
-| 1 | Foundation | 🟡 In Progress |
+| 1 | Foundation | ✅ Complete |
 | 2 | Core Backend | ⬜ Planned |
 | 3 | Architecture Evolution | ⬜ Planned |
 | 4 | Event-Driven Architecture | ⬜ Planned |
@@ -18,6 +18,8 @@ This directory tracks the evolution of the HelixCart platform across phases.
 ## Phase 1 — Foundation
 
 **Goal:** Establish the engineering foundation. No features yet — only structure, standards, and skeleton.
+
+**Status:** Complete as of 2026-05-27.
 
 ### Objectives
 - [x] Repository structure created
@@ -36,6 +38,11 @@ This directory tracks the evolution of the HelixCart platform across phases.
 - [x] Git repository initialized with `main` branch protection hook
 
 **Exit Criteria:** The application starts, connects to PostgreSQL and Redis, logs in JSON, exposes health/metrics, and runs in Docker.
+
+**Verification:**
+- `./mvnw verify` passes from `services/helixcart-app`.
+- `docker build -t helixcart-app:phase1 .` passes from `services/helixcart-app`.
+- `GET /actuator/health` returns `UP` for the app container with PostgreSQL and Redis healthy.
 
 ---
 

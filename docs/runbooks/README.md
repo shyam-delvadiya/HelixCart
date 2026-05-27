@@ -8,7 +8,7 @@ Runbooks document how to perform common operational tasks and respond to known f
 
 | Runbook | Service | Description |
 |---------|---------|-------------|
-| *(none yet — added as services reach operational maturity)* | | |
+| [Local Startup and Verification](local-startup-and-verification.md) | helixcart-app | Start local dependencies, run the app, and verify health/metrics. |
 
 ## Runbook Template
 
