@@ -120,6 +120,19 @@ jobs:
           distribution: 'temurin'
           cache: 'maven'
 
+      - name: Set dependency-check cache key
+        id: dependency-check-cache
+        run: echo "week=$(date -u +%G-%V)" >> "$GITHUB_OUTPUT"
+
+      - name: Cache dependency-check vulnerability database
+        uses: actions/cache@v4
+        with:
+          path: ~/.m2/repository/org/owasp/dependency-check-data
+          key: dependency-check-${{ runner.os }}-${{ steps.dependency-check-cache.outputs.week }}-${{ hashFiles('services/helixcart-app/pom.xml') }}
+          restore-keys: |
+            dependency-check-${{ runner.os }}-${{ steps.dependency-check-cache.outputs.week }}-
+            dependency-check-${{ runner.os }}-
+
       - name: Run OWASP Dependency Check
         working-directory: services/helixcart-app
         run: |
