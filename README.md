@@ -133,6 +133,17 @@ curl http://localhost:8080/actuator/health
 open http://localhost:8080/swagger-ui.html
 ```
 
+### CI Secrets (GitHub Actions)
+
+For the full CI pipeline to run with all features, configure these secrets in **GitHub → Settings → Secrets and variables → Actions**:
+
+| Secret | Purpose | Required |
+|--------|---------|----------|
+| `NVD_API_KEY` | Authenticates OWASP Dependency Check against the NVD API — prevents rate limiting and speeds up CVE scans. Get one free at [nvd.nist.gov/developers/request-an-api-key](https://nvd.nist.gov/developers/request-an-api-key). | Optional (recommended) |
+| `SEMGREP_APP_TOKEN` | Enables Semgrep Cloud dashboard and PR annotations. Get one at [semgrep.dev](https://semgrep.dev). | Optional |
+
+The pipeline degrades gracefully without these — scans still run in a limited mode.
+
 ---
 
 ## Engineering Standards

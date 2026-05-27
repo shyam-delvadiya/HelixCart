@@ -51,6 +51,15 @@ Key variables:
 | `SPRING_PROFILES_ACTIVE` | `local` | Active Spring profile |
 | `SERVER_PORT` | `8080` | HTTP port |
 
+### CI Secrets
+
+These are not local environment variables — they are GitHub Actions secrets configured in the repository settings. They are not needed to run the application locally.
+
+| Secret | Purpose |
+|--------|---------|
+| `NVD_API_KEY` | Authenticates OWASP Dependency Check against the NVD API. Without it the scan still runs but is rate-limited. Free key at [nvd.nist.gov/developers/request-an-api-key](https://nvd.nist.gov/developers/request-an-api-key). |
+| `SEMGREP_APP_TOKEN` | Enables Semgrep Cloud dashboard. Without it Semgrep runs in OSS mode. |
+
 ## Running Locally
 
 ### Prerequisites
