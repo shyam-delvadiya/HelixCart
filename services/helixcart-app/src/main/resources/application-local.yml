@@ -1,0 +1,21 @@
+# Local development profile
+# Used when running the application locally with Docker Compose
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/helixcart
+    username: helixcart
+    password: helixcart
+
+  data:
+    redis:
+      host: localhost
+      port: 6379
+      password: ""
+
+logging:
+  level:
+    com.helixcart: DEBUG
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE

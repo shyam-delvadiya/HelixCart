@@ -1,0 +1,13 @@
+# Test profile configuration
+# Testcontainers overrides datasource and redis properties via @DynamicPropertySource
+
+spring:
+  jpa:
+    show-sql: false
+  flyway:
+    enabled: true
+
+logging:
+  level:
+    root: WARN
+    com.helixcart: INFO

@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+set -eu
+
+branch="$(git symbolic-ref --quiet --short HEAD || true)"
+
+if [ "$branch" = "main" ]; then
+  echo "Direct commits to main are not allowed."
+  echo "Create a branch and merge through a PR/MR instead."
+  exit 1
+fi

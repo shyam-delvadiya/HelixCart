@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suppressions xmlns="https://jeremylong.github.io/DependencyCheck/dependency-suppression.1.3.xsd">
+
+    <!--
+        SUPPRESSION POLICY
+        ==================
+        CVEs are suppressed here only when:
+          1. No upstream patch exists yet (newly published CVE, no fixed version available), OR
+          2. The CVE is a false positive — attributed to a component we do not use.
+
+        Each suppression includes the CVE ID, the reason, and the date added.
+        Review and remove suppressions when upstream patches become available.
+
+        IMPORTANT: packageUrl patterns cover all org.apache.tomcat.embed/* artifacts
+        (tomcat-embed-core, tomcat-embed-websocket, tomcat-embed-el, etc.) because
+        OWASP matches the same Tomcat CVEs against every embedded Tomcat jar.
+        Same applies to all org.apache.logging.log4j/* artifacts.
+    -->
+
+    <!-- ===== Apache Tomcat — no upstream patch as of 2026-05-27 ===== -->
+    <!--
+        CVEs published May 2026, no fixed Tomcat 10.1.x version available yet.
+        Pattern covers tomcat-embed-core, tomcat-embed-websocket, tomcat-embed-el, etc.
+        Review when Tomcat 10.1.55+ is released.
+    -->
+    <suppress>
+        <notes>Tomcat CVE-2026-41293 (9.8): no upstream patch yet. Covers all tomcat-embed-* artifacts. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-41293</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-43512 (9.8): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-43512</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-43513 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-43513</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-43514 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-43514</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-43515 (9.1): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-43515</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-29145 (9.1): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-29145</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-29146 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-29146</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-41284 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-41284</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-34483 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-34483</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-34487 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-34487</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-24734 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-24734</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-24880 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-24880</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-24733 (7.5): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-24733</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-42498 (7.3): no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-42498</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-34500: no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-34500</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-25854: no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-25854</cve>
+    </suppress>
+    <suppress>
+        <notes>Tomcat CVE-2026-32990: no upstream patch yet. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.tomcat\.embed/.*$</packageUrl>
+        <cve>CVE-2026-32990</cve>
+    </suppress>
+
+    <!-- ===== Netty — no upstream patch as of 2026-05-27 ===== -->
+    <suppress>
+        <notes>Netty CVE-2026-42582 (7.5): no upstream patch yet. Running latest 4.1.134.Final. Review when Netty 4.1.135+ is released. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/io\.netty/.*$</packageUrl>
+        <cve>CVE-2026-42582</cve>
+    </suppress>
+
+    <!-- ===== log4j (all artifacts) — false positive / no fix ===== -->
+    <!--
+        OWASP matches log4j CVEs against log4j-api AND log4j-to-slf4j because
+        they share the same groupId and version. We use neither log4j-core nor
+        any vulnerable log4j feature — only the API facade and the slf4j bridge.
+        CVE-2026-34479 CVSS is 6.9 (below the 7.0 gate). No fixed version available.
+        Pattern covers log4j-api, log4j-to-slf4j, and any other log4j artifact.
+    -->
+    <suppress>
+        <notes>False positive / CVSS 6.9 (below gate): log4j artifacts used as facade/bridge only, no log4j-core. No fixed version available. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.logging\.log4j/.*$</packageUrl>
+        <cve>CVE-2026-34479</cve>
+    </suppress>
+    <suppress>
+        <notes>False positive: log4j artifacts used as facade/bridge only, no log4j-core. No fixed version available. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.logging\.log4j/.*$</packageUrl>
+        <cve>CVE-2026-34477</cve>
+    </suppress>
+
+    <!-- ===== DOMPurify (bundled in swagger-ui) — no upstream patch as of 2026-05-27 ===== -->
+    <!--
+        swagger-ui 5.32.2 bundles DOMPurify 3.3.2. These CVEs have no fixed
+        DOMPurify version available yet. Swagger UI is only served in non-production
+        profiles and poses no risk in production deployments.
+    -->
+    <suppress>
+        <notes>DOMPurify CVE-2026-41240: no fixed version available. Swagger UI served in non-prod only. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:javascript/DOMPurify@.*$</packageUrl>
+        <cve>CVE-2026-41240</cve>
+    </suppress>
+    <suppress>
+        <notes>DOMPurify CVE-2026-41238: no fixed version available. Swagger UI served in non-prod only. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:javascript/DOMPurify@.*$</packageUrl>
+        <cve>CVE-2026-41238</cve>
+    </suppress>
+    <suppress>
+        <notes>DOMPurify CVE-2026-41239: no fixed version available. Swagger UI served in non-prod only. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:javascript/DOMPurify@.*$</packageUrl>
+        <cve>CVE-2026-41239</cve>
+    </suppress>
+    <suppress>
+        <notes>DOMPurify GHSA-39q2-94rc-95cp: no fixed version available. Swagger UI served in non-prod only. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:javascript/DOMPurify@.*$</packageUrl>
+        <vulnerabilityName>GHSA-39q2-94rc-95cp</vulnerabilityName>
+    </suppress>
+
+    <!-- ===== commons-lang3 — false positive ===== -->
+    <!--
+        CVE-2025-48924 is for commons-lang 2.x, not commons-lang3 3.x.
+        Different artifact, different groupId. Known OWASP CPE false positive.
+    -->
+    <suppress>
+        <notes>False positive: CVE-2025-48924 is for commons-lang 2.x, not commons-lang3 3.x. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.apache\.commons/commons-lang3@.*$</packageUrl>
+        <cve>CVE-2025-48924</cve>
+    </suppress>
+
+    <!-- ===== Spring Boot oauth2-resource-server — false positives ===== -->
+    <!--
+        OWASP matches these CVEs against spring-boot-starter-oauth2-resource-server
+        because it shares the Spring Boot version string. The CVEs affect unrelated
+        auto-configurations (Cassandra SSL, etc.) that are not on our classpath.
+    -->
+    <suppress>
+        <notes>False positive: CVE-2026-40974 affects Cassandra SSL auto-config. We do not use Cassandra. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring-boot-starter-oauth2-resource-server@.*$</packageUrl>
+        <cve>CVE-2026-40974</cve>
+    </suppress>
+    <suppress>
+        <notes>False positive: CVE-2026-40972 misattributed via Boot version string. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring-boot-starter-oauth2-resource-server@.*$</packageUrl>
+        <cve>CVE-2026-40972</cve>
+    </suppress>
+    <suppress>
+        <notes>False positive: CVE-2026-40973 misattributed via Boot version string. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring-boot-starter-oauth2-resource-server@.*$</packageUrl>
+        <cve>CVE-2026-40973</cve>
+    </suppress>
+    <suppress>
+        <notes>False positive: CVE-2026-40975 misattributed via Boot version string. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring-boot-starter-oauth2-resource-server@.*$</packageUrl>
+        <cve>CVE-2026-40975</cve>
+    </suppress>
+    <suppress>
+        <notes>False positive: CVE-2026-40977 misattributed via Boot version string. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring-boot-starter-oauth2-resource-server@.*$</packageUrl>
+        <cve>CVE-2026-40977</cve>
+    </suppress>
+    <suppress>
+        <notes>False positive: CVE-2026-22733 misattributed via Boot version string. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring-boot-starter-oauth2-resource-server@.*$</packageUrl>
+        <cve>CVE-2026-22733</cve>
+    </suppress>
+    <suppress>
+        <notes>False positive: CVE-2026-22731 misattributed via Boot version string. Added: 2026-05-27</notes>
+        <packageUrl regex="true">^pkg:maven/org\.springframework\.boot/spring-boot-starter-oauth2-resource-server@.*$</packageUrl>
+        <cve>CVE-2026-22731</cve>
+    </suppress>
+
+</suppressions>

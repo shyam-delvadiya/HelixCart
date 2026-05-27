@@ -1,0 +1,86 @@
+# HelixCart — Local Development Docker Compose
+#
+# Starts all infrastructure dependencies for local development.
+# The application itself is run from your IDE or via `./mvnw spring-boot:run`.
+#
+# Usage:
+#   Start infrastructure:  docker compose up -d
+#   Stop infrastructure:   docker compose down
+#   Reset data:            docker compose down -v
+#
+# Services:
+#   - PostgreSQL 16  → localhost:5432
+#   - Redis 7        → localhost:6379
+#   - pgAdmin        → http://localhost:5050  (optional, for DB inspection)
+
+services:
+
+  # ===== PostgreSQL =====
+  postgres:
+    image: postgres:16-alpine
+    container_name: helixcart-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: helixcart
+      POSTGRES_USER: helixcart
+      POSTGRES_PASSWORD: helixcart
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U helixcart -d helixcart"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - helixcart-network
+
+  # ===== Redis =====
+  redis:
+    image: redis:7-alpine
+    container_name: helixcart-redis
+    restart: unless-stopped
+    command: redis-server --save 60 1 --loglevel warning
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - helixcart-network
+
+  # ===== pgAdmin (optional — comment out if not needed) =====
+  pgadmin:
+    image: dpage/pgadmin4:8.9
+    container_name: helixcart-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@helixcart.local
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    ports:
+      - "5050:80"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - helixcart-network
+    profiles:
+      - tools  # Only starts with: docker compose --profile tools up -d
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  helixcart-network:
+    driver: bridge
