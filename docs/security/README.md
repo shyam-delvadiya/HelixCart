@@ -6,7 +6,7 @@ Security posture, decisions, and incident records for HelixCart.
 
 See `.rules/security-rules.md` for the full security policy.
 
-## Current Security Posture (Phase 1)
+## Current Security Posture (Phase 2 In Progress)
 
 | Control | Status | Notes |
 |---------|--------|-------|
@@ -17,7 +17,8 @@ See `.rules/security-rules.md` for the full security policy.
 | Trivy scan in CI | ✅ | Warn-only in Phase 1; pinned to `0.35.0` (safe post-compromise) |
 | Semgrep SAST in CI | ✅ | Warn-only in Phase 1 |
 | OWASP Dependency Check in CI | ✅ | Warn-only in Phase 1 (continue-on-error); enforces CVSS ≥ 7.0 gate in Phase 6 |
-| JWT validation | ⬜ | Phase 2 — Zitadel integration |
+| JWT validation | ⬜ | Planned Phase 2 Auth slice — Zitadel integration |
+| Catalog API authorization | ⬜ | Endpoints currently require authentication through the skeleton; role-based policies arrive with Auth |
 | mTLS service-to-service | ⬜ | Phase 5 — service mesh |
 | Secrets manager | ⬜ | Phase 5 — Kubernetes Secrets / Vault |
 

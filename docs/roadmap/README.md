@@ -7,7 +7,7 @@ This directory tracks the evolution of the HelixCart platform across phases.
 | Phase | Name | Status |
 |-------|------|--------|
 | 1 | Foundation | ✅ Complete |
-| 2 | Core Backend | ⬜ Planned |
+| 2 | Core Backend | 🟡 In Progress |
 | 3 | Architecture Evolution | ⬜ Planned |
 | 4 | Event-Driven Architecture | ⬜ Planned |
 | 5 | Infrastructure Maturity | ⬜ Planned |
@@ -50,13 +50,16 @@ This directory tracks the evolution of the HelixCart platform across phases.
 
 **Goal:** Implement the four core domain modules with full engineering standards.
 
+**Status:** In progress as of 2026-05-31.
+
 ### Objectives
 - [ ] Auth module (Zitadel integration, JWT validation, RBAC)
-- [ ] Catalog module (products, categories, search)
+- [ ] Catalog module (products, categories, search) — product and category slices started
 - [ ] Order module (order lifecycle, state machine)
-- [ ] Inventory module (stock management, reservations)
+- [ ] Inventory module (stock management, reservations) — stock and reservation slice started
 - [ ] OpenAPI documentation for all modules
 - [ ] Integration tests with Testcontainers
+- [ ] ArchUnit tests for module/layer boundaries
 - [ ] ADRs for key design decisions
 
 **Exit Criteria:** All four modules functional, tested, documented, and observable.

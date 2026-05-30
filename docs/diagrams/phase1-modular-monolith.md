@@ -1,4 +1,4 @@
-# Diagram: Phase 1 — Modular Monolith Architecture
+# Diagram: Base Modular Monolith Architecture
 
 ```mermaid
 graph TB
@@ -42,6 +42,7 @@ graph TB
 ## Notes
 
 - All four domain modules are in a single deployable JAR.
+- Phase 2 is implementing these module internals incrementally, starting with Catalog products/categories and Inventory stock reservations.
 - Each module has its own package hierarchy and database schema (via Flyway).
 - Modules communicate through Java interfaces — no direct cross-module class coupling.
 - This design enables future service extraction without architectural rewrites.

@@ -22,11 +22,11 @@ This is not a frontend-heavy ecommerce clone. It is an **engineering evolution j
 
 ---
 
-## Current Phase: Phase 1 — Foundation Complete
+## Current Phase: Phase 2 — Core Backend In Progress
 
-The foundation is complete. No domain features yet — only structure, standards, infrastructure integration, and operational skeleton.
+Phase 1 foundation is complete. Phase 2 has started with Catalog and Inventory slices: domain models, application services, JPA persistence adapters, REST APIs, OpenAPI metadata, and focused service tests.
 
-Next planned work is **Phase 2 — Core Backend**, starting with the domain modules documented in the roadmap.
+Next planned work continues **Phase 2 — Core Backend**, adding Auth and Order modules and hardening module-boundary tests.
 
 See [docs/roadmap/README.md](docs/roadmap/README.md) for the full evolution plan.
 

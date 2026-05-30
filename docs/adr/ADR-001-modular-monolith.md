@@ -67,7 +67,7 @@ The modular monolith is the correct starting point because:
 
 ### Risks
 - Team discipline required to prevent module boundary violations.
-- Mitigation: ArchUnit tests to enforce package boundaries (added in Phase 2).
+- Mitigation: ArchUnit tests to enforce package boundaries (planned in Phase 2).
 
 ---
 
