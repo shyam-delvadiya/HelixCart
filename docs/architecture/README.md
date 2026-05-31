@@ -2,11 +2,11 @@
 
 This directory contains architecture documentation for the HelixCart platform.
 
-## Current Architecture: Phase 1 — Modular Monolith
+## Current Architecture: Phase 2 — Modular Monolith In Progress
 
 ### Overview
 
-HelixCart begins as a **modular monolith** — a single deployable unit with clearly separated internal modules. This is a deliberate starting point, not a limitation.
+HelixCart is evolving as a **modular monolith** — a single deployable unit with clearly separated internal modules. This is a deliberate starting point, not a limitation.
 
 The modular monolith gives us:
 - Fast development iteration
@@ -51,6 +51,15 @@ module/
 
 Modules communicate through well-defined interfaces — never by directly accessing another module's internal classes or database tables.
 
+### Current Implementation Status
+
+| Module | Status |
+|--------|--------|
+| auth | Planned for Phase 2 |
+| catalog | Product and category slice in progress: domain, application services, JPA adapters, REST APIs, OpenAPI metadata, tests |
+| order | Planned for Phase 2 |
+| inventory | Stock and reservation slice in progress: domain, application service, JPA adapter, REST API, OpenAPI metadata, tests |
+
 ### Technology Decisions
 
 | Concern | Technology | Rationale |
@@ -76,6 +85,6 @@ See `docs/adr/` for the decision records behind each evolution step.
 
 ## Architecture Diagrams
 
-- `diagrams/phase1-modular-monolith.md` — Current architecture
+- `diagrams/phase1-modular-monolith.md` — Base modular monolith architecture
 - `diagrams/phase3-gateway.md` — Target architecture for Phase 3 (planned)
 - `diagrams/phase5-microservices.md` — Long-term target (planned)

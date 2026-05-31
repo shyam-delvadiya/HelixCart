@@ -5,7 +5,7 @@
 
 ## Purpose
 
-Start the Phase 1 HelixCart stack locally and verify that the application can connect to PostgreSQL and Redis, expose health checks, and publish Prometheus metrics.
+Start the HelixCart stack locally and verify that the application can connect to PostgreSQL and Redis, expose health checks, publish Prometheus metrics, and serve OpenAPI documentation.
 
 ## Prerequisites
 

@@ -10,7 +10,7 @@ This service is the single deployable unit containing all four domain modules:
 - **order** — Order lifecycle management (Phase 2)
 - **inventory** — Stock and reservation management (Phase 2)
 
-Phase 1 establishes the foundation: project structure, configuration, observability, and infrastructure integration. Domain modules are scaffolded but not yet implemented.
+Phase 1 established the foundation: project structure, configuration, observability, and infrastructure integration. Phase 2 is now in progress, starting with the Catalog product slice.
 
 ## Domain Responsibilities
 
@@ -27,6 +27,38 @@ Phase 1 establishes the foundation: project structure, configuration, observabil
 - OpenAPI JSON: http://localhost:8080/api-docs
 - Health: http://localhost:8080/actuator/health
 - Metrics: http://localhost:8080/actuator/prometheus
+
+### Catalog API
+
+The first Phase 2 Catalog slice exposes product and category management:
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| `POST` | `/api/v1/products` | Create a product |
+| `PUT` | `/api/v1/products/{productId}` | Replace product details |
+| `PATCH` | `/api/v1/products/{productId}/status` | Change product status |
+| `GET` | `/api/v1/products/{productId}` | Fetch product by ID |
+| `GET` | `/api/v1/products/sku/{sku}` | Fetch product by SKU |
+| `GET` | `/api/v1/products` | Search products by text/status with pagination |
+| `POST` | `/api/v1/categories` | Create a category |
+| `PUT` | `/api/v1/categories/{categoryId}` | Replace category details |
+| `GET` | `/api/v1/categories/{categoryId}` | Fetch category by ID |
+| `GET` | `/api/v1/categories/slug/{slug}` | Fetch category by slug |
+| `GET` | `/api/v1/categories` | Search categories by text with pagination |
+
+These endpoints are protected by the Phase 1 security skeleton. JWT validation and RBAC are planned in the Phase 2 Auth slice.
+
+### Inventory API
+
+The Phase 2 Inventory slice exposes stock and reservation management:
+
+| Method | Path | Purpose |
+|--------|------|---------|
+| `POST` | `/api/v1/inventory` | Create inventory for a product |
+| `GET` | `/api/v1/inventory/products/{productId}` | Fetch inventory by product |
+| `PATCH` | `/api/v1/inventory/products/{productId}/stock` | Adjust stock on hand |
+| `PATCH` | `/api/v1/inventory/products/{productId}/reservations` | Reserve stock |
+| `PATCH` | `/api/v1/inventory/products/{productId}/reservations/release` | Release reserved stock |
 
 ## Dependencies
 
@@ -103,8 +135,8 @@ Expected:
 # Run all tests (requires Docker for Testcontainers)
 ./mvnw verify
 
-# Run unit tests only (no Docker required)
-./mvnw test -Dgroups=unit
+# Run the catalog service unit tests only (no Docker required)
+./mvnw -Dtest=ProductCatalogServiceTest,CategoryCatalogServiceTest,InventoryCatalogServiceTest test
 
 # Run with coverage report
 ./mvnw verify jacoco:report
@@ -113,6 +145,7 @@ Expected:
 ## Architecture Notes
 
 - Clean architecture: domain → application → infrastructure → api layers
+- Catalog product/category and Inventory stock/reservation functionality are implemented as Phase 2 vertical slices
 - Flyway manages all schema migrations in `src/main/resources/db/migration/`
 - Correlation IDs are propagated via `X-Correlation-ID` header and SLF4J MDC
 - JSON structured logging via logstash-logback-encoder
